@@ -28,6 +28,10 @@ namespace BalancedBracketsNS
             int brackets = 0;
             foreach (char ch in str.ToCharArray())
             {
+                if (brackets < 0)
+                {
+                    return false;
+                }
                 if (ch == '[')
                 {
                     brackets++;
@@ -36,10 +40,7 @@ namespace BalancedBracketsNS
                 {
                     brackets--;
                 }
-                if (brackets < 0)
-                {
-                    return false;
-                }
+                
             }
             return brackets == 0;
         }
